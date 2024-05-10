@@ -19,20 +19,23 @@ export default function MenuPage() {
   return (
     <section className="mt-8">
       {categories?.length > 0 &&
-        categories.map((c) => (
-          <div key={c._id}>
-            <div className="text-center">
-              <SectionHeaders mainHeader={c.name} />
-            </div>
-            <div className="grid sm:grid-cols-3 gap-4 mt-6 mb-12">
-              {menuItems
-                .filter((item) => item.category === c._id)
-                .map((item) => (
+        categories.map((c) => {
+          console.log("Category:", c);
+          const filteredMenuItems = menuItems.filter((item) => item.category === c._id);
+          console.log("Filtered Menu Items:", filteredMenuItems);
+          return (
+            <div key={c._id}>
+              <div className="text-center">
+                <SectionHeaders mainHeader={c.name} />
+              </div>
+              <div className="grid sm:grid-cols-3 gap-4 mt-6 mb-12">
+                {filteredMenuItems.map((item) => (
                   <MenuItem key={item._id} {...item} />
                 ))}
+              </div>
             </div>
-          </div>
-        ))}
+          );
+        })}
     </section>
   );
 }

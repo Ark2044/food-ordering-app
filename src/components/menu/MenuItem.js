@@ -3,7 +3,6 @@ import MenuItemTile from "@/components/menu/MenuItemTile";
 import Image from "next/image";
 import { useContext, useState } from "react";
 import FlyingButton from "react-flying-item";
-import toast from "react-hot-toast";
 
 export default function MenuItem(menuItem) {
   const { image, name, description, basePrice, sizes, extraIngredientPrices } =
@@ -58,7 +57,7 @@ export default function MenuItem(menuItem) {
             className="my-8 bg-white p-2 rounded-lg max-w-md"
           >
             <div
-              className="overflow-y-scroll p-2"
+              className="overflow-y-scroll p-2 no-scrollbar"
               style={{ maxHeight: "calc(100vh - 100px)" }}
             >
               <Image

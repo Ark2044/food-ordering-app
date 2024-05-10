@@ -1,7 +1,15 @@
+"use client"
 import Right from "@/components/icons/Right";
 import Image from "next/image";
+import { useRouter } from "next/navigation"; // Import useRouter hook
 
 export default function Hero() {
+  const router = useRouter(); // Initialize useRouter hook
+
+  const handleClick = (link) => {
+    router.push(link); // Use router.push for navigation
+  };
+
   return (
     <section className="hero md:mt-4">
       <div className="py-8 md:py-12">
@@ -18,11 +26,17 @@ export default function Hero() {
           delicious joy in life
         </p>
         <div className="flex gap-4 text-sm">
-          <button className="flex justify-center bg-primary uppercase items-center gap-2 text-white px-4 py-2 rounded-full">
+          <button
+            className="flex justify-center bg-primary uppercase items-center gap-2 text-white px-4 py-2 rounded-full"
+            onClick={() => handleClick("/menu")} // Call handleClick with "/order-now" link
+          >
             Order now
             <Right />
           </button>
-          <button className="flex items-center border-0 gap-2 py-2 text-gray-600 font-semibold">
+          <button
+            className="flex items-center border-0 gap-2 py-2 text-gray-600 font-semibold"
+            onClick={() => handleClick("/#about")} // Call handleClick with "/learn-more" link
+          >
             Learn more
             <Right />
           </button>
