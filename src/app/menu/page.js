@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 export default function MenuPage() {
   const [categories, setCategories] = useState([]);
   const [menuItems, setMenuItems] = useState([]);
-  
+
   useEffect(() => {
     fetch("/api/categories").then((res) => {
       res.json().then((categories) => setCategories(categories));
@@ -15,6 +15,7 @@ export default function MenuPage() {
       res.json().then((menuItems) => setMenuItems(menuItems));
     });
   }, []);
+  
   return (
     <section className="mt-8">
       {categories?.length > 0 &&
