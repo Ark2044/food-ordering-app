@@ -1,3 +1,4 @@
+import Image from "next/image";
 import AddToCartButton from "@/components/menu/AddToCartButton";
 
 export default function MenuItemTile({ onAddToCart, ...item }) {
@@ -11,10 +12,12 @@ export default function MenuItemTile({ onAddToCart, ...item }) {
       group hover:bg-white hover:shadow-md hover:shadow-black/25 transition-all"
     >
       <div className="text-center">
-        <img
+        <Image
           src={image}
           className="max-h-auto max-h-24 block mx-auto"
           alt="pizza"
+          width={300} // Adjust the width and height as per your requirement
+          height={200}
         />
       </div>
       <h4 className="font-semibold text-xl my-3">{name}</h4>
